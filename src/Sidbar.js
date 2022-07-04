@@ -1,5 +1,6 @@
 import React from 'react'
 import { Link } from 'react-router-dom';
+import { BiLineChart } from "react-icons/bi";
 export const Sidbar = () => {
   return (
 <>
@@ -105,7 +106,7 @@ export const Sidbar = () => {
           </li>
           <li class="nav-item">
             <a class="nav-link" data-bs-toggle="collapse" href="#charts" aria-expanded="false" aria-controls="charts">
-              <i class="menu-icon mdi mdi-chart-line"></i>
+             <BiLineChart/>
               <span class="menu-title">Charts</span>
               <i class="menu-arrow"></i>
             </a>

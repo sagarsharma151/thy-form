@@ -69,7 +69,12 @@ const Register = () => {
                       src="https://www.bootstrapdash.com/demo/star-admin2-pro/template/images/logo.svg"
                       alt="logo"
                     /> */}
-                    <h2>Thyform</h2>
+                      <div>
+          <a class="navbar-brand brand-logo" href="/">
+            <img src="../../images/Logo.png" alt="logo" />
+          </a>
+         
+        </div>
                   </div>
                   {/* <h6 class="mandatory">*This is a mandatory field</h6> */}
                   <h4 className="heading-form">Your business</h4>
@@ -230,7 +235,14 @@ const Register = () => {
                       </div>
                   
                       <hr />
-                      <div class="mt-3 text-end">
+                      <div class="mt-3 text-end d-flex align-items-center justify-content-between">
+                      <p className="already-login">
+                     Already account please{" "}
+                      <Link to="/login" class="auth-link text-black">
+                        Login
+                      </Link>{" "}
+                     
+                    </p>
                         <Link
                           class="btn  auth-form-btn auth-form-btn1"
                           to="/login"
@@ -358,7 +370,14 @@ const Register = () => {
                        
                       </div>
                       <hr />
-                      <div class="mt-3 text-end">
+                      <div class="mt-3 text-end d-flex align-items-center justify-content-between">
+                      <p className="already-login">
+                     Already account please{" "}
+                      <Link to="/login" class="auth-link text-black">
+                        Login
+                      </Link>{" "}
+                     
+                    </p>
                       <Link
                           class="btn  auth-form-btn auth-form-btn1"
                           to="/login"
@@ -483,7 +502,7 @@ const Register = () => {
                             </div>
                             <div className="d-flex mt-3 align-items-center">
                               <div className=" lables-div">
-                                <label className="lable-form">Number of employees*</label>
+                                <label className="lable-form">House number*</label>
                               </div>
                               <div className="search-input-div">
                                 {/* <input type='search' placeholder='Enter your business name*' className='search-input'/> */}
@@ -493,21 +512,21 @@ const Register = () => {
                             </div>
                             <div className="d-flex mt-3 align-items-center">
                               <div className=" lables-div">
-                                <label className="lable-form">Number of employees*</label>
+                                <label className="lable-form">Address line*</label>
                               </div>
                               <div className="search-input-div">
                                 {/* <input type='search' placeholder='Enter your business name*' className='search-input'/> */}
-                                <input type="number" class="search-input" />
+                                <input type="text" class="search-input" />
                               </div>
                             
                             </div>
                             <div className="d-flex mt-3 align-items-center">
                               <div className=" lables-div">
-                                <label className="lable-form">Number of employees*</label>
+                                <label className="lable-form">Town / City*</label>
                               </div>
                               <div className="search-input-div">
                                 {/* <input type='search' placeholder='Enter your business name*' className='search-input'/> */}
-                                <input type="number" class="search-input" />
+                                <input type="text" class="search-input" />
                               </div>
                               
                             </div>

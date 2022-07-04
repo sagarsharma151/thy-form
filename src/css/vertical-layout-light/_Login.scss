@@ -11,13 +11,15 @@
     margin-bottom: 0rem !important;
 }
 .brand-logo1{
-    width: 166px !important;
+    width: 197px !important;
     height: auto;
     margin-top: 25px;
     margin-bottom: 1rem !important;
 }
 .login-heading{
-    line-height: 35px;
+    padding-left: 14px;
+    line-height: 23px;
+
 }
 .login-bg{
     background-color: #fff;
@@ -46,4 +48,7 @@
     border: 1px solid #ced4da !important;
     color: #20252a !important;
     transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out !important;
+}
+.dashboard-margin{
+    margin-top: 105px;
 }

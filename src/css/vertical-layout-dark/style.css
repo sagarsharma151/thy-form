@@ -11705,7 +11705,7 @@ fieldset:disabled .wizard > .actions a,
 .show > .btn-primary.dropdown-toggle,
 .wizard > .actions .show > a.dropdown-toggle {
   color: #fff;
-  background-color: red;
+  background-color: #2e4ec5;
   border-color: #2c49b9;
 }
 
@@ -30341,7 +30341,7 @@ div.tagsinput span.tag a {
 }
 
 .auth form .auth-link {
-  font-size: 0.875rem;
+  font-size: 15px
 }
 
 .auth form .auth-link:hover {

@@ -11,6 +11,9 @@ import './vendors/simple-line-icons/css/simple-line-icons.css'
 import './vendors/css/vendor.bundle.base.css'
 import './css/vertical-layout-light/style.css'
 import './App.scss'
+import Setting from './pages/jotform/Setting'
+import Publish from './pages/jotform/Publish'
+// import Build from './pages/'
 import Allform from './pages/Allform'
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Sidbar from './Sidbar';
@@ -21,6 +24,8 @@ import Register from './Register';
 import Login from './userpages/Login'
 import { ThemeProvider } from "styled-components";
 import Dark from './Dark';
+import Jotform from './pages/jotform/Jotform';
+import JotformNav from './pages/JotformNav';
 const LightTheme = {
   pageBackground: "white",
   titleColor: "#dc658b",
@@ -38,62 +43,60 @@ const themes = {
   dark: DarkTheme,
 }
 function App() {
-  
+  console.log(window.location.pathname,'window.location.pathname')
   return (
     <>
-     <div class="container-scroller">
-    {/* <div class="row p-0 m-0 proBanner" id="proBanner"> 
-      <div class="col-md-12 p-0 m-0">
-        <div class="card-body card-body-padding px-3 d-flex align-items-center justify-content-between">
-          <div class="ps-lg-3">
-            <div class="d-flex align-items-center justify-content-between">
-              <p class="mb-0 font-weight-medium me-3 buy-now-text">Free 24/7 customer support, updates, and more with this template!</p>
-              <a href="https://www.bootstrapdash.com/product/star-admin-pro/?utm_source=navbar&amp;utm_medium=productdemo&amp;utm_campaign=getpro" target="_blank" class="btn me-2 buy-now-btn border-0">Buy Now</a>
-            </div>
-          </div>
-          <div class="d-flex align-items-center justify-content-between">
-            <a href="https://www.bootstrapdash.com/product/star-admin-pro/"><i class="ti-home me-3 text-white"></i></a>
-            <button id="bannerClose" class="btn border-0 p-0">
-              <i class="ti-close text-white"></i>
-            </button>
-          </div>
-        </div>
-      </div>
-    </div>  */}
-    {/* <!-- partial:partials/_navbar.html --> */}
-
-    {/* <!-- partial --> */}
-    <div class="container-fluid page-body-wrapper">
-      {/* <!-- partial:partials/_settings-panel.html --> */}
-     
-      {/* <!-- partial --> */}
-      {/* <!-- partial:partials/_sidebar.html --> */}
- 
-      {/* <!-- partial --> */}
+    {window.location.pathname == '/jotform' || '/setting' || '/publish' ?       <BrowserRouter>
+        {localStorage.getItem('token') ? <Navbar /> : ''}
+        {localStorage.getItem('token') ?  <Dark /> : ''}
+        {localStorage.getItem('token') ? <Sidbar /> : ''}
+        {/* <Navbar />
+        <Dark />
+        <Sidbar /> */}
+        <JotformNav />
+         <Routes>
+             <Route path='/allform' element={<Allform />} />
+             <Route path='/jotform' element={<Jotform />} />
+             <Route path='/allform' element={<Allform />} />
+             <Route path='/jotform' element={<Jotform />} />
+             <Route path="/dashboard" element={<Dashboard />} />
+            <Route path="/chart" element={<Chart />} />
+             <Route path="/" element={<Register />} />
+             <Route path='/login' element={<Login />} />
+             <Route path='/publish' element={<Publish />} />
+             <Route path='/setting' element={<Setting />} />
+            
+         </Routes>
+       </BrowserRouter> : <>
+    <div class="container-scroller">
+       <div class="container-fluid page-body-wrapper">
+        <BrowserRouter>
+        {window.location.pathname == '/dashboard' || window.location.href == '/chart' ? <Navbar /> : ''}
+        { window.location.pathname == '/dashboard' || window.location.href == '/chart' ?  <Dark /> : ''}
+        { window.location.pathname == '/dashboard' || window.location.href == '/chart' ? <Sidbar /> : ''}
+        {/* <Navbar />
+        <Dark />
+        <Sidbar /> */}
+         <Routes>
+           {/* <Route path="/" element={<Layout />}> */}
+             {/* <Route index element={<Home />} /> */}
+             <Route path='/allform' element={<Allform />} />
+             <Route path='/jotform' element={<Jotform />} />
+             <Route path="/dashboard" element={<Dashboard />} />
+            <Route path="/chart" element={<Chart />} />
+            <Route path="/" element={<Register />} />
+             <Route path='/login' element={<Login />} />
+             <Route path='/publish' element={<Publish />} />
+             <Route path='/setting' element={<Setting />} />
+           {/* </Route> */}
+         </Routes>
+       </BrowserRouter>
+       </div>
+       {/* <!-- page-body-wrapper ends --> */}
+     </div>
+     {/* <!-- container-scroller --> */}
+     {/* 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 */}</> }
     
-     <BrowserRouter>
-     {localStorage.getItem('token') ? <Navbar /> : ''}
-     {localStorage.getItem('token') ?  <Dark /> : ''}
-     {localStorage.getItem('token') ? <Sidbar /> : ''}
-     {/* <Navbar />
-     <Dark />
-     <Sidbar /> */}
-      <Routes>
-        {/* <Route path="/" element={<Layout />}> */}
-          {/* <Route index element={<Home />} /> */}
-          <Route path='/allform' element={<Allform />} />
-          <Route path="/dashboard" element={<Dashboard />} />
-         <Route path="/chart" element={<Chart />} />
-          <Route path="/" element={<Register />} />
-          <Route path='/login' element={<Login />} />
-        {/* </Route> */}
-      </Routes>
-    </BrowserRouter>
-    </div>
-    {/* <!-- page-body-wrapper ends --> */}
-  </div>
-  {/* <!-- container-scroller --> */}
-
     </>
   );
 }

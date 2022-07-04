@@ -15,10 +15,10 @@ export const Navbar = () => {
         </div>
         <div>
           <a class="navbar-brand brand-logo" href="index.html">
-            <img src="https://www.bootstrapdash.com/demo/star-admin2-pro/template/images/logo.svg" alt="logo" />
+            <img src="../../images/Logo.png" alt="logo" />
           </a>
           <a class="navbar-brand brand-logo-mini" href="index.html">
-            <img src="https://www.bootstrapdash.com/demo/star-admin2-pro/template/images/logo-mini.svg" alt="logo" />
+            <img src="/images/Logo.png" alt="logo" />
           </a>
         </div>
       </div>
@@ -73,7 +73,7 @@ export const Navbar = () => {
           </li>
           <li class="nav-item d-none d-lg-block">
             <div id="create-form" class="create-form">
-            <Link to='/' className='create-link'><button className='create-form-btn'>Create Form</button></Link>
+            <Link to='/jotform' className='create-link'><button className='create-form-btn'>Create Form</button></Link>
             </div>
           </li>
           <li class="nav-item">

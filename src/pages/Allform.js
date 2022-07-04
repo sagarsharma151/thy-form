@@ -4,33 +4,59 @@ import { FiAlignJustify ,FiStar} from "react-icons/fi";
 import { useDetectOutsideClick } from "./useDetectOutsideClick";
 import { Link } from 'react-router-dom';
 const Allform = () => {
-    const dropdownRef = useRef(null);
-  const [isActive, setIsActive] = useDetectOutsideClick(dropdownRef, true);
-  const onClick = (e) =>{
-    //   e.preventDefault();
-    setIsActive(!isActive)
-    
-  };
-console.log(isActive,' setIsActive(!isActive)')
+    // const dropdownRef = useRef(null);
+    // const [isActive, setIsActive] = useDetectOutsideClick(dropdownRef, false);
+    // const onClick = () => setIsActive(!isActive);
+// console.log(isActive,' setIsActive(!isActive)')
     $(document).ready(function () {
         $('#sidebarCollapse').on('click', function () {
-            $('#sidebar').toggleClass('active');
+            $('#sidebars').toggleClass('active');
         });
+    });
+
+    $(document).ready(function (e) {
+        function t(t) {
+            e(t).bind("click", function (t) {
+                t.preventDefault();
+                e(this).parent().fadeOut()
+            })
+        }
+        e(".dropdown-toggle").click(function () {
+            var t = e(this).parents(".button-dropdown").children(".dropdown-menu").is(":hidden");
+            e(".button-dropdown .dropdown-menu").hide();
+            e(".button-dropdown .dropdown-toggle").removeClass("actives1");
+            if (t) {
+                e(this).parents(".button-dropdown").children(".dropdown-menu").toggle().parents(".button-dropdown").children(".dropdown-toggle").addClass("actives1")
+                e(this).parents(".button-dropdown").children(".dropdown-menu").css("display", "flex");
+            }
+        });
+        e(document).bind("click", function (t) {
+            var n = e(t.target);
+            if (!n.parents().hasClass("button-dropdown")) e(".button-dropdown .dropdown-menu").hide();
+        });
+        e(document).bind("click", function (t) {
+            var n = e(t.target);
+            if (!n.parents().hasClass("button-dropdown")) e(".button-dropdown .dropdown-toggle").removeClass("actives1");
+        })
     });
   return (
     <>
  <div class="wrapper">
     
-        <nav id="sidebar">
+        <nav id="sidebars">
             <div class="sidebar-header">
-                <h3>Bootstrap Sidebar</h3>
+         <div className='allform-logo-div'>
+         <a class="navbar-brand brand-logo" href="/">
+            <img src="../../images/Logo.png" alt="logo" className='allform-logo' />
+          </a>
+         </div>
             </div>
 
             <ul class="list-unstyled components">
                 <h4 className='side-head'>MY FORMS</h4>
               <hr></hr>
                 <li>
-                    <Link to='/' class="">All Forms</Link>
+                    <Link to='/allform' class="">All Forms</Link>
                     {/* <ul class="collapse list-unstyled" id="homeSubmenu">
                         <li>
                             <a href="#">Home 1</a>
@@ -46,7 +72,7 @@ console.log(isActive,' setIsActive(!isActive)')
                 </li>
                 <hr></hr>
                 <li>
-                    <Link to='/' class="">Create a new folder</Link>
+                    <a href='/dashboard' class="">Create a new folder</a>
                     {/* <ul class="collapse list-unstyled" id="homeSubmenu">
                         <li>
                             <a href="#">Home 1</a>
@@ -193,30 +219,30 @@ console.log(isActive,' setIsActive(!isActive)')
 
                   
                     <div class="collapse navbar-collapse justify-content-between" id="navbarSupportedContent">
-                        <ul class="nav navbar-nav ml-auto align-items-center">
-                            <li class="nav-item active p-3">
+                        <ul class="navform navbar-nav ml-auto align-items-center">
+                            <li class="nav-item active p-3 formlink">
                             <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault"/>
                             </li>
-                            <li class="nav-item ps-4">
+                            <li class="nav-item ps-4 formlink">
                                <FiStar style={{fontSize:'22px'}}/>
                             </li>
-                            <li class="nav-item ps-3">
-                                <a class="nav-link" href="#">Page</a>
+                            <li class="nav-item ps-3 formlink">
+                                <a class="nav-link a" href="#">Page</a>
                             </li>
-                            <li class="nav-item ps-3">
+                            <li class="nav-item ps-3 formlink">
                                 <h4>Form</h4>
                                 <p>one submission Created on Jun 28, 2022</p>
                             </li>
                         </ul>
-                        <ul class="nav navbar-nav ml-auto align-items-center right-nav">
-                            <li class="nav-item active ps-3">
-                            <Link to='/' class="nav-link-hover">Edit Form</Link>
+                        <ul class="navform navbar-nav ml-auto align-items-center right-nav">
+                            <li class="nav-item active ps-3 formlink">
+                            <a href='/dashboard' class="nav-link-hover">analytics</a>
                             </li>
-                            <li className="nav-item ps-3">
+                            <li className="nav-item ps-3 formlink">
                             <Link className="nav-link-hover" to='/'>Inbox</Link>
                             </li>
-                            <li class="nav-item ps-3">
-                            <button onClick={onClick} className="menu-trigger1">
+                            <li class="nav-item ps-3 formlink">
+                            {/* <button onClick={onClick} className="menu-trigger1">
           <span>more</span>
           
         </button>
@@ -303,7 +329,98 @@ console.log(isActive,' setIsActive(!isActive)')
               <a href="#">Delete</a>
             </li>
           </ul>
-        </div>
+        </div> */}
+        <ul class="navform">
+
+  <li class="button-dropdown formlink">
+    <a href="javascript:void(0)" class="dropdown-toggle drop">
+      More <span>▼</span>
+    </a>
+    <div  class="dropdown-menu largest-list">
+    <ul>
+    <li>
+           <a href="#" className='drop'>  PUBLISH</a>
+            </li>
+           
+            <li>
+              <a href="#" className='drop'>Publish Form</a>
+            </li>
+            <li>
+              <a href="#" className='drop'>Share as Template</a>
+            </li>
+            <li>
+              <a href="#" className='drop'>Assign Form</a>
+            </li>
+            <li>
+              <a href="#" className='drop'>Create Prefill</a>
+            </li>
+            <li>
+              <a href="#" className='drop'>Create an App</a>
+            </li>
+    </ul>
+    <ul>
+    <li>
+            <a href="#" className='drop'>  DATA</a>
+            </li>
+            <li>
+              <a href="#" className='drop'>Submissions</a>
+            </li>
+            <li>
+              <a href="#" className='drop'>Inbox</a>
+            </li>
+            <li>
+              <a href="#" className='drop'>Form Analytics</a>
+            </li>
+            <li>
+              <a href="#" className='drop'>Create Report</a>
+            </li>
+            <li>
+              <a href="#" className='drop'>Create PDF Document</a>
+            </li>
+           
+            <li>
+              <a href="#" className='drop'> Create Approval Flow</a>
+            </li>
+    </ul>
+    <ul>
+    <li>
+    <a href="#" className='drop'>  FORM</a>
+            </li>
+            <li>
+              <a href="#" className='drop'>Edit</a>
+            </li>
+            <li>
+              <a href="#" className='drop'>Edit</a>
+            </li>
+            <li>
+              <a href="#" className='drop'>Settings</a>
+            </li>
+            <li>
+              <a href="#" className='drop'>Rename</a>
+            </li>
+            <li>
+              <a href="#" className='drop'>Clone</a>
+            </li>
+            <li>
+              <a href="#" className='drop'>Disable</a>
+            </li>
+            <li>
+              <a href="#" className='drop'>Revision History</a>
+            </li>
+            <li>
+              <a href="#" className='drop'>Archive</a>
+            </li>
+            <li>
+              <a href="#" className='drop'>Delete</a>
+            </li>
+    </ul>
+    </div>
+   
+    
+  </li>
+
+  
+</ul>
                             </li>
                           
                         </ul>

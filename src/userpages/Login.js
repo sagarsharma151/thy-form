@@ -1,21 +1,10 @@
 import React, {useState, useEffect } from "react";
 import { FiLogIn } from "react-icons/fi";
-import { HTML5Backend } from "react-dnd-html5-backend";
-import { DndProvider } from "react-dnd";
-import { DragDropContext, Droppable, Draggable } from "react-beautiful-dnd";
-import DraggableList from "react-draggable-lists";
+import { Link } from "react-router-dom";
 const Login = () => {
-  // let items = document.querySelectorAll('.container1 .box');
-  // items.forEach(function (item) {
-  //   item.addEventListener('dragstart', handleDragStart);
-  //   item.addEventListener('dragend', handleDragEnd);
-  // });
+
   const [image, setImage] = useState({ preview: "", raw: "" });
   useEffect(() => {
-    /* Made with love by @fitri
- This is a component of my ReactJS project
- https://codepen.io/fitri/full/oWovYj/ */
-
     function enableDragSort(listClass) {
       const sortableLists = document.getElementsByClassName(listClass);
       Array.prototype.map.call(sortableLists, (list) => {
@@ -80,15 +69,7 @@ const Login = () => {
       <div class="container-scroller">
         <div class="container-fluid page-body-wrapper full-page-wrapper">
           <div class="content-wrapper d-flex align-items-stretch auth auth-img-bg">
-            {/* <DraggableList width={300} height={300} rowSize={2}>
-            <div  style={{ width: 300, height: 300, background: "green" }}>
-              1
-            </div>
-            <div style={{ width: 200, height: 300, background: "blue" }}>2</div>
-            <div style={{ width: 200, height: 300, background: "red" }}>3</div>
-          </DraggableList> */}
             <div class="row flex-grow login-bg drag-sort-enable">
-              {/* <DraggableList> */}
               <div
                 class="col-lg-8 login-half-bg d-flex flex-row box"
                 draggable="true"
@@ -108,9 +89,7 @@ const Login = () => {
           <img src={image.preview} alt="dummy" className="upload-img" />
         ) : (
           <>
-            <span className="linear"></span>
-                <b className="bold-letter" style={{fontSize:'25px'}}>ThyForm</b>{" "}
-                {/* <span className="admin-letter" style={{fontSize:'20px'}}>Admin</span> */}
+                          <img src="../../images/Logo.png" alt="logo" />
           </>
         )}
                       <h6 class="fw-light login-heading">
@@ -138,18 +117,10 @@ const Login = () => {
                   </div>
                
               </div>
-      
-                  {/* <h4>Welcome back!</h4> */}
 
                   <form class="pt-3">
                     <div class="form-group">
-                      {/* <label for="exampleInputEmail">Username</label> */}
                       <div class="input-group">
-                        {/* <div class="input-group-prepend bg-transparent">
-                      <span class="input-group-text bg-transparent border-right-0">
-                        <i class="ti-user text-primary"></i>
-                      </span>
-                    </div> */}
                         <input
                           type="text"
                           className="form-control  border-left-0  input-login"
@@ -176,13 +147,8 @@ const Login = () => {
                     </div>
 
                     <div class="form-group">
-                      {/* <label for="exampleInputPassword">Password</label> */}
                       <div class="input-group">
-                        {/* <div class="input-group-prepend bg-transparent">
-                      <span class="input-group-text bg-transparent border-right-0">
-                        <i class="ti-lock text-primary"></i>
-                      </span>
-                    </div> */}
+                
                         <input
                           type="phone"
                           className="form-control  border-left-0 input-login"
@@ -195,12 +161,6 @@ const Login = () => {
 
                  
                     <div class="my-2 d-flex  align-items-center">
-                      {/* <div class="form-check">
-  <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault"/>
-  <label class="form-check-label" for="flexCheckDefault">
-    Default checkbox
-  </label>
-</div> */}
                       <input
                         class="form-check-input"
                         type="checkbox"
@@ -219,31 +179,18 @@ const Login = () => {
                     </div>
                     <div class="d-grid mt-3 gap-2 col-12 mx-auto mb-2">
                       <button class="btn btn-primary" type="button">
-                        Signin
+                       <Link to='/allform'> Signin</Link>
                       </button>
                       {/* <button class="btn btn-primary" type="button">Button</button> */}
                     </div>
-                    <p>
+                    <p className="already-login">
                       Not a member yet? Click{" "}
-                      <a href="#" class="auth-link text-black">
+                      <Link to="/" class="auth-link text-black">
                         here
-                      </a>{" "}
+                      </Link>{" "}
                       to register.
                     </p>
-                    {/* <div class="my-3">
-                  <a class="btn btn-block btn-primary btn-lg font-weight-medium auth-form-btn" href="../../index.html">LOGIN</a>
-                </div> */}
-                    {/* <div class="mb-2 d-flex">
-                  <button type="button" class="btn btn-facebook auth-form-btn flex-grow me-1">
-                    <i class="ti-facebook me-2"></i>Facebook
-                  </button>
-                  <button type="button" class="btn btn-google auth-form-btn flex-grow ms-1">
-                    <i class="ti-google me-2"></i>Google
-                  </button>
-                </div>
-                <div class="text-center mt-4 fw-light">
-                  Don't have an account? <a href="register-2.html" class="text-primary">Create</a>
-                </div> */}
+         
                   </form>
                   <hr className="mt-5" />
 
